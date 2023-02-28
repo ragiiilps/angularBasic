@@ -1,0 +1,25 @@
+<div class="container">
+  <div [style]="styleBtn" class="mb-3">
+    <button class="btn btn-primary" (click)="onChange()">{{!stateChange ? "Show" : "Hide"}}</button>
+  </div>
+  <form [hidden]="!stateChange" [formGroup]="todosForm">
+    <div class="mb-3">
+      <input type="text" class="form-control" id="todos" placeholder="Add todo" formControlName="todo">
+      <small *ngIf="todosForm.get('todo').errors?.['required'] && todosForm.get('todo').touched" style="color:red">Error message</small>
+      <input type="date" class="form-control my-2" name="date" id="date" formControlName="date">
+      <small *ngIf="todosForm.get('date').errors?.['required'] && todosForm.get('date').touched" style="color:red">Error message</small>
+      <div [style]="styleBtn">
+        <input type="button" class="btn btn-primary" value="Add" (click)="addTodo(todosForm.value)">
+      </div>
+    </div>
+  </form>
+  <!-- <div class="mt-4" [style]="style">
+    <div  *ngFor="let todo of todos">
+      <p>{{todo.todo}} <span>{{todo.date}}</span></p>
+    </div>
+  </div> -->
+</div>
+
+
+
+

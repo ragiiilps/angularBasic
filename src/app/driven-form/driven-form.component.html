@@ -1,0 +1,17 @@
+<div class="container">
+  <div [style]="styleBtn" class="mb-3">
+    <button class="btn btn-primary" (click)="onChange()">{{!stateChange ? "Show" : "Hide"}}</button>
+  </div>
+  <form [hidden]="!stateChange" #todosForm = "ngForm" (ngSubmit)="addTodo(todosForm.value)">
+    <div class="d-flex">
+      <input type="text" class="form-control" id="todos" placeholder="Add todo" name="todo" ngModel>
+      <input type="submit" class="btn btn-primary" value="Add">
+    </div>
+    <small *ngIf="todosForm.invalid && todosForm.touched" style="color:red">Error message</small>
+  </form>
+  <div class="mt-4" [style]="style">
+    <!-- <p>{{todos.value}}</p> -->
+  </div>
+</div>
+
+
